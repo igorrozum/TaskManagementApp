@@ -1,0 +1,47 @@
+{{#each messages}}
+    <div class="error">
+        {{this}}
+    </div>
+
+{{/each}}
+
+
+ <h2 class="heading">Add Task</h2>
+    {{!-- <form method="POST" action="/task/add">
+
+        <label>Title</label>
+        <input type="text" name="title" id="title"> <br><br>
+
+        <label>Description</label>
+        <textarea id="description" name="description"></textarea><br><br>
+
+        <label>Reminder Date</label>
+        <input type="date" name="reminderDate" id="reminderDate"> <br><br>
+
+        <input type="submit" value="Add Task">
+    </form> --}}
+
+
+
+    <form method="POST" action="/task/add" class="taskForm">
+
+        <div class="addForm">
+            <label>Title</label>
+            <input type="text" name="title" id="title" class="addFormFields">
+        </div>
+
+        <div class="addForm">
+            <label>Description</label>
+            <textarea id="description" name="description" class="addFormFields"></textarea>
+        </div>
+
+        <div class="addForm">
+            <label>Reminder Date</label>
+            <input type="date" name="reminderDate" id="reminderDate" class="addFormFields">
+        </div>
+
+        
+        {{!-- <input type="submit" value="Add Task" id="addTaskBut"> --}}
+        <a href="/task/list"><button type="button" id="cancelBut" class="btn btn-outline-secondary">Cancel</button></a>
+        <button type="submit" value="Submit" class="btn btn-outline-primary">Add Task</button>
+    </form>

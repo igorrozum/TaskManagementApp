@@ -1,0 +1,28 @@
+{{#each messages}}
+    <div class="error">
+        {{this}}
+    </div>
+
+{{/each}}
+
+
+ <h2 class="heading">Edit Task</h2>
+    <form method="POST" action="/task/edit/{{task._id}}?_method=PUT" class="taskForm">
+        <div class="addForm">
+            <label>Title</label>
+            <input type="text" name="title" id="title" value="{{task.title}}">
+        </div>
+
+        <div class="addForm">
+            <label>Description</label>
+            <textarea id="description" name="description">{{task.description}}</textarea>
+        </div>
+
+        <div class="addForm">
+            <label>Reminder Date</label>
+            <input type="date" name="reminderDate" id="reminderDate" value="{{task.dateReminder}}">
+        </div>
+
+        <a href="/task/list"><button type="button" id="cancelBut" class="btn btn-outline-secondary">Cancel</button></a>
+        <input class="btn btn-outline-primary" type="submit" value="Save Task">
+    </form>

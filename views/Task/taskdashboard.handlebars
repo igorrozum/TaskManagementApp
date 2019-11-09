@@ -1,0 +1,26 @@
+<div class="heading" id="taskAddHeader">
+    <h2>Task Dashboard</h2>
+    <a href="/task/add"><button class="btn btn-outline-secondary" id="plusBut">+</button></a>
+</div>
+
+
+<section>
+    {{#each list}}
+        <div id="taskListBlock">
+            <a data-toggle="collapse" href="#{{this._id}}" role="button" aria-expanded="false" aria-controls="{{this._id}}" ><h4>{{this.title}}</h4></a>
+            <div id="taskListButs">
+                <a href="/task/edit/{{this._id}}" class="btn btn-outline-primary btn-sm">Edit</a>
+                <form method="POST" action="/task/delete/{{this._id}}?_method=DELETE">
+                    <input type="submit" value="Delete" class="btn btn-outline-danger btn-sm">
+                </form>
+            </div>
+        </div>
+        <div class="collapse" id="{{this._id}}">
+            <p>{{ this.description }}</p>
+        </div>
+        <hr>
+
+    {{else}}
+        At present, there is no tasks in the database
+    {{/each}}
+</section>

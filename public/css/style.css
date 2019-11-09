@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+@font-face {
+    font-family: 'Airbnb Cereal App Book';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Airbnb Cereal App Book'), url('../fonts/AirbnbCerealBook.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Airbnb Cereal App Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Airbnb Cereal App Medium'), url('../fonts/AirbnbCerealMedium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Airbnb Cereal App Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Airbnb Cereal App Bold'), url('../fonts/AirbnbCerealBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Airbnb Cereal App Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Airbnb Cereal App Light'), url('../fonts/AirbnbCerealLight.woff') format('woff');
+}
+
+
+body {
+    width: 60vw;
+    margin: 0 auto;
+    padding: 10vh 0 0 0;
+    font-family: 'Airbnb Cereal App Book';
+    background-color: #ffffff;
+    background-image: url("../img/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../img/bg.jpg");
+    background-image: url("../img/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../img/bg.jpg");
+    background-image: url("../img/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
+    background-image: url("../img/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../img/bg.jpg");
+    background-repeat: repeat,			no-repeat,			no-repeat;
+    background-size: 100px 100px, cover,				cover;
+    background-position: top left,		center center,		bottom center;
+    background-attachment: fixed,			fixed,				fixed;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color:black;
+}
+
+
+#mainBlock {
+    background: #ffffff;
+    padding: 4rem 4rem;
+    border-radius: 20px;
+}
+
+header {
+    text-align: center;
+}
+
+#taskHeading {
+    /* text-decoration: none; */
+    color: black;
+}
+
+#homeLinks {
+    padding: 2rem 0 3rem 0;
+    font-size: 1.1rem;
+    
+}
+
+#homeLinks a {
+    /* text-decoration: none; */
+    color: black;
+    padding-right: 1rem;
+}
+
+#homeLinks a:hover {
+    color: gray;
+}
+
+
+
+
+
+.heading {
+    padding-bottom: 2rem;
+}
+
+
+
+
+.addForm {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    padding-bottom: 1.1rem;
+}
+
+
+.taskForm {
+    width: 60%;
+}
+
+.taskForm div:last-of-type {
+    padding-bottom: 3rem;
+}
+
+
+.addFormFields {
+    font-size: 0.9rem;
+}
+
+#description {
+    min-height: 60px;
+}
+
+
+#taskAddHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+#taskListBlock {
+    display: flex;
+    justify-content: space-between;
+}
+
+#taskListButs {
+    display: flex;
+}
+
+#taskListButs>form {
+    padding-left: 1rem;
+}
+
+#taskListButs>a {
+    height: 86%;
+}
