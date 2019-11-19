@@ -1,0 +1,24 @@
+{{#each errors}}
+    <div class="error">{{this}}</div>
+{{/each}}
+
+    <h2>Login</h2>
+    
+    <form method="POST" action="/user/login" id="registerForm">
+        
+        <div class="inputForm">
+            <label>Email</label>
+            <input type="email" name="email" id="email"> 
+        </div>
+        
+        <div class="inputForm">
+            <label>Password</label>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <div class="inputForm">
+            <input type="submit" class="btn btn-outline-primary" value="Sign In" id="signBut">
+        </div>
+        
+    </form>
+

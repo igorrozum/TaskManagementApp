@@ -18,9 +18,14 @@
         <a href="/" id="taskHeading"><h1>Task Management App</h1></a>
 
         <div id="homeLinks">
-            <a href="/user/login">Login</a>
-            <a href="/user/register">Register</a>
             <a href="/about">About</a>
+            {{#if user}}
+                <a href="/task/list">Task List</a>
+                <a href="/user/logout">Log Out</a>
+            {{else}}
+                <a href="/user/login">Login</a>
+                <a href="/user/register">Register</a>
+            {{/if}}
         </div>
     </header>
 

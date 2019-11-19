@@ -2,12 +2,7 @@
 const Task = require("../models/Task");
 const express = require('express')
 const router = express.Router()
-const bodyParser = require('body-parser')
-const methodOverride = require('method-override')
 
-
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(methodOverride('_method'))
 
 // Takes you to the task add page
 router.get('/add', (req, res)=>{

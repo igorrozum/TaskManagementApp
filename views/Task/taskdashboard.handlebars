@@ -1,6 +1,12 @@
+{{#if user}}
+    <h6>Welcome {{ user.firstName }} {{ user.lastName }}</h6><br>
+{{/if}}
 <div class="heading" id="taskAddHeader">
-    <h2>Task Dashboard</h2>
-    <a href="/task/add"><button class="btn btn-outline-secondary" id="plusBut">+</button></a>
+    <h2>Task Dashboard</h2><br><br>
+    {{#if user}}
+        <a href="/task/add"><button class="btn btn-outline-secondary" id="plusBut">+</button></a>
+    {{/if}}
+    
 </div>
 
 

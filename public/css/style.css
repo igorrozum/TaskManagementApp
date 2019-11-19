@@ -78,7 +78,6 @@ header {
 #homeLinks {
     padding: 2rem 0 3rem 0;
     font-size: 1.1rem;
-    
 }
 
 #homeLinks a {
@@ -102,7 +101,7 @@ header {
 
 
 
-.addForm {
+.inputForm {
     display: grid;
     grid-template-columns: 4fr 6fr;
     padding-bottom: 1.1rem;
@@ -149,4 +148,16 @@ header {
 
 #taskListButs>a {
     height: 86%;
+}
+
+
+
+
+
+#registerForm {
+    width: 60%;
+}
+
+#signBut {
+    width: 70%;
 }
