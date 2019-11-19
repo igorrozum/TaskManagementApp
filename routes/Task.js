@@ -4,6 +4,15 @@ const express = require('express')
 const router = express.Router()
 
 
+function isAuthenticated(req, res, next) {
+    if (req.session.userInfo) {
+        return next();
+    } else {
+        res.render('User/login')
+    }
+  }
+
+
 // Takes you to the task add page
 router.get('/add', (req, res)=>{
     res.render('Task/taskadd')
@@ -27,7 +36,7 @@ router.post('/add', (req, res)=>{
 
 
 // Takes you to the task list page
-router.get('/list', (req, res)=>{
+router.get('/list', isAuthenticated, (req, res)=>{
     // This is how you pull from the database
     Task.find()
     .then((tasks)=>{

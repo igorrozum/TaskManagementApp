@@ -10,9 +10,6 @@ const methodOverride = require('method-override')
 const app = express()
 
 
-
-
-
 app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
