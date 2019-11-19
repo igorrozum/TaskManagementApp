@@ -14,7 +14,7 @@ function isAuthenticated(req, res, next) {
 
 
 // Takes you to the task add page
-router.get('/add', (req, res)=>{
+router.get('/add', isAuthenticated, (req, res)=>{
     res.render('Task/taskadd')
 })
 
@@ -24,7 +24,8 @@ router.post('/add', (req, res)=>{
     const formData = {
         title: req.body.title,
         description: req.body.description,
-        dateReminder: req.body.reminderDate
+        dateReminder: req.body.reminderDate,
+        user: req.session.userInfo._id
     }
 
     const task = new Task(formData);
@@ -38,7 +39,7 @@ router.post('/add', (req, res)=>{
 // Takes you to the task list page
 router.get('/list', isAuthenticated, (req, res)=>{
     // This is how you pull from the database
-    Task.find()
+    Task.find({user: req.session.userInfo._id})
     .then((tasks)=>{
         res.render("Task/taskdashboard", {
             list : tasks
@@ -47,11 +48,6 @@ router.get('/list', isAuthenticated, (req, res)=>{
     .catch(err=>console.log(`Error : ${err}`))
 })
 
-
-// Takes you to the task edit page
-// router.get('/edit', (req, res)=>{
-//     res.render('register')
-// })
 
 router.get('/edit/:id', (req, res)=>{
     

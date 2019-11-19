@@ -2,25 +2,25 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const taskSchema = new Schema({
-  title:  
-  {
+  title: {
       type:String,
       required:true
   },
-  description:  
-  {
+  description: {
       type:String,
       required:true
   },
-  dateReminder:  
-  {
+  dateReminder: {
       type:Date,
       required:false
   },
-  dateCreated :
-  {
+  dateCreated : {
       type:Date,
       default: Date.now()
+  },
+  user: {
+      type: String,
+      required: true
   }
 });
 
