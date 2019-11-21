@@ -1,5 +1,8 @@
 {{#if user}}
-    <h6>Welcome {{ user.firstName }} {{ user.lastName }}</h6><br>
+    <div id="userBlock">
+        <img src="/uploads/{{ user.profilePic }}" alt="Profile picture" id="profPic">
+        <h6>Welcome {{ user.firstName }} {{ user.lastName }}</h6><br>
+    </div>
 {{/if}}
 <div class="heading" id="taskAddHeader">
     <h2>Task Dashboard</h2><br><br>

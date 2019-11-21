@@ -161,3 +161,22 @@ header {
 #signBut {
     width: 70%;
 }
+
+
+#userBlock {
+    height: 3rem;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+#userBlock h6 {
+    align-self: center;
+    margin-left: 1rem;
+}
+
+#profPic {
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 3rem;
+    object-fit: cover;
+}

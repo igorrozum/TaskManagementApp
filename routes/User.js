@@ -4,6 +4,7 @@ const User = require('../models/User')
 const bodyParser = require('body-parser')
 const bcrypt = require('bcryptjs')
 const session = require('express-session')
+const path = require('path')
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }))
@@ -55,30 +56,53 @@ router.get('/register', (req, res) => {
 
 router.post('/register',(req,res)=> {
     //validation
+    let errors = []
 
-    console.log(req.body)
-
-    const userData = {
-        firstName : req.body.firstName,
-        lastName : req.body.lastName,
-        email : req.body.email,
-        // username : req.body.username,
-        password : req.body.password
+    if (req.files == null) {
+        errors.push("please upload the file")
+    } else {
+        if (req.files.profilePic.mimetype.indexOf('image') == -1) {
+            errors.push('it is not an image')
+        }
     }
-    
-    
 
-    const user = new User(userData)
-    user.save()
-    .then(user => {
-        console.log(`User ${user.username} has been inserted`) 
-        // we don't put '/' in the render, only in redirect
-        res.redirect('/user/login')
-    })
-    .catch(err => {
-        console.log(`Something went wrong: ${err}`)
-        res.redirect('/user/register')
-    })
+    if (errors.length > 0) {
+        res.render('User/register', {
+            errors: errors
+        })
+    } else {
+        const userData = {
+            firstName : req.body.firstName,
+            lastName : req.body.lastName,
+            email : req.body.email,
+            // username : req.body.username,
+            password : req.body.password
+        }
+        
+    
+        const user = new User(userData)
+        user.save()
+        .then(user => {
+            req.files.profilePic.name = `pic_${user._id}${path.parse(req.files.profilePic.name).ext}`
+
+            req.files.profilePic.mv(`./public/uploads/${req.files.profilePic.name}`)
+            .then(() => {
+                console.log(`User ${user.firstName} has been inserted`) 
+                // user.profilePic = req.files.profilePic.name
+                user.updateOne({profilePic: req.files.profilePic.name})
+                .then(() => console.log(`Picture ${req.files.profilePic.name} has been saved`))
+                .catch(err => console.log(`Picture ${req.files.profilePic.name} has not been saved`))
+                res.redirect('/user/login')
+            })
+            .catch(err => console.log(`something went wrong ${err}`))
+        })
+        .catch(err => {
+            console.log(`Something went wrong: ${err}`)
+            res.redirect('/user/register')
+        })
+    }
+
+
 });
 
 

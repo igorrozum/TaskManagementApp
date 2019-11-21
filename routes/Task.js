@@ -4,13 +4,14 @@ const express = require('express')
 const router = express.Router()
 
 
-function isAuthenticated(req, res, next) {
-    if (req.session.userInfo) {
-        return next();
-    } else {
-        res.render('User/login')
-    }
-  }
+// function isAuthenticated(req, res, next) {
+//     if (req.session.userInfo)
+//         return next();
+//     else
+//         res.render('User/login')
+// }
+
+const isAuthenticated = require('../middleware/auth')
 
 
 // Takes you to the task add page
@@ -19,7 +20,7 @@ router.get('/add', isAuthenticated, (req, res)=>{
 })
 
 
-router.post('/add', (req, res)=>{
+router.post('/add', isAuthenticated, (req, res)=>{
 
     const formData = {
         title: req.body.title,
@@ -49,7 +50,7 @@ router.get('/list', isAuthenticated, (req, res)=>{
 })
 
 
-router.get('/edit/:id', (req, res)=>{
+router.get('/edit/:id', isAuthenticated, (req, res)=>{
     
     Task.findById(req.params.id)
     .then((task)=>{
