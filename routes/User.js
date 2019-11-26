@@ -3,7 +3,6 @@ const router = express.Router()
 const User = require('../models/User')
 const bodyParser = require('body-parser')
 const bcrypt = require('bcryptjs')
-const session = require('express-session')
 const path = require('path')
 
 router.use(bodyParser.json());
